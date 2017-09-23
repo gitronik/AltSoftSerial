@@ -133,12 +133,44 @@
 
 
 // Sanguino, Mighty 1284
-#elif defined(__AVR_ATmega644P__) || defined(__AVR_ATmega644__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega1284__)
+
+// mightyCore
+#elif defined(__AVR_ATmega644P__) || defined(__AVR_ATmega644__)  || defined(__AVR_ATmega644A__) || defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega164__)
  #define ALTSS_USE_TIMER1
  #define INPUT_CAPTURE_PIN		14 // receive
  #define OUTPUT_COMPARE_A_PIN		13 // transmit
  #define OUTPUT_COMPARE_B_PIN		12 // unusable PWM
 
+//
+//TESTED ON ATMEGA8 - ON ATMEGA128/64 MUST BE RE CONFIGURE
+#elif defined(__AVR_ATmega8__) || defined(__AVR_ATmega64__) || defined(__AVR_ATmega128__) 
+ #define ALTSS_USE_TIMER1_LEGACY
+ #define INPUT_CAPTURE_PIN		 8 // receive
+ #define OUTPUT_COMPARE_A_PIN		 9 // transmit
+ #define OUTPUT_COMPARE_B_PIN		10 // unusable PWM
+ 
+ 
+//development edition ON ATMEGA128/64 not tested
+#elif efined(__AVR_ATmega64__) || defined(__AVR_ATmega128__) 
+ #define ALTSS_USE_TIMER_LEGACY
+ #define INPUT_CAPTURE_PIN		 22 // receive
+ #define OUTPUT_COMPARE_A_PIN		13 // transmit
+ #define OUTPUT_COMPARE_B_PIN		14 // unusable PWM
+ #define OUTPUT_COMPARE_C_PIN		15 // unusable PWM
+
+ //#define ALTSS_USE_TIMER3
+ //#define INPUT_CAPTURE_PIN		7 // receive
+ //#define OUTPUT_COMPARE_A_PIN		3 // transmit
+ //#define OUTPUT_COMPARE_B_PIN		4 // unusable PWM
+ //#define OUTPUT_COMPARE_C_PIN		5 // unusable PWM
+ 
+//mightyCore
+//TESTED ON ATMEGA16 - ON ATMEGA8535/32 MUST BE RE CONFIGURE
+#elif defined(__AVR_ATmega8535__) || defined(__AVR_ATmega16__) || defined(__AVR_ATmega32__) 
+ #define ALTSS_USE_TIMER1_LEGACY
+ #define INPUT_CAPTURE_PIN		 14 // receive
+ #define OUTPUT_COMPARE_A_PIN		 13 // transmit 
+ #define OUTPUT_COMPARE_B_PIN		12 // unusable PWM
 
 
 // Unknown board
